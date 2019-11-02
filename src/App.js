@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 
-class App extends React.Component {
+class App extends Component {
   state = {
      show: true,
      movies: []
@@ -11,27 +11,27 @@ class App extends React.Component {
     this.setState(prevState => ({
       show: !prevState.show
     })) 
-   
-    if (this.state.show){
-      return (
-        <div class="card"></div>
-      )
-    }
   }
 
-let btnStyle = {'backgroundColor'}
-
 render() {
+  if (this.state.show){
+    return (
+      <div class="card"></div>
+    )
+  }
   return (
     <div className="App">
       <header className="App-header">
         <h1>Studio Ghibli Filmography</h1>
-        <button onClick={this.toggleState}>Show Films</button>
+        <button onClick={this.toggleState} style={btnStyle}>Show Films</button>
       </header>
     </div>
   );
 }
 }
 
+const btnStyle = {
+  backgroundColor: '#787'
+}
 
 export default App;
